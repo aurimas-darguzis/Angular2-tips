@@ -24,7 +24,7 @@ export class BandInstrumentService {
   }
 }
 
-/********************* In a component***************************/
+/********************* InstrumentListComponent ***************************/
 import { Component, OnInit } from '@angular/core';
 import { Instrument } from '../shared/instrument';
 
@@ -41,3 +41,27 @@ import { Instrument } from '../shared/instrument';
     this.instruments = this.instrmServ.getInstruments();
   }
  }
+
+/********************* InstrumentPlayersComponent ***************************/
+import { Component, OnInit, Input } from '@angular/core';
+import { Recipe } from '../recipe';
+import { ShoppingListService } from '../../shopping-list/shopping-list.service';
+
+@Component({
+  selector: 'ad-player-detail',
+  templateUrl: './player-detail.component.html'
+})
+export class InstrumentPlayersComponent implements OnInit {
+  @Input() selectedInstrument: Instrument;
+
+  constructor(private bss: BandInstrumentService) { }
+
+  ngOnInit() {
+  }
+
+  onAddToShoppingList() {
+    this.bss.addItems(this.selectedInstrument.player);
+  }
+
+}
+
