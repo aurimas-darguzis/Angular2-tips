@@ -1,4 +1,4 @@
-import { Instrument } from '../shared/instruments';
+import { Instrument } from '../shared/instrument';
 
 export class BandInstrumentService {
   private instruments: Instrument[] = [];
@@ -23,3 +23,21 @@ export class BandInstrumentService {
      **************************************************/
   }
 }
+
+/********************* In a component***************************/
+import { Component, OnInit } from '@angular/core';
+import { Instrument } from '../shared/instrument;
+
+@Component({
+  selector: 'ad-instrument-list',
+  templateUrl: './instrument-list.component.html';
+})
+ export class InstrumentListComponent implements OnInit {
+  instruments: Instrument[];
+ 
+ constructor(private instrmServc: BandInstrumentService) {}
+ 
+ ngOnInit() {
+    this.instruments = this.instrmServ.getInstruments();
+  }
+ }
