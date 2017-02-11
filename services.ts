@@ -26,7 +26,7 @@ export class BandInstrumentService {
 
 /********************* In a component***************************/
 import { Component, OnInit } from '@angular/core';
-import { Instrument } from '../shared/instrument;
+import { Instrument } from '../shared/instrument';
 
 @Component({
   selector: 'ad-instrument-list',
